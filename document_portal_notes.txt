@@ -1,0 +1,7 @@
+mkdir document_portal
+cd document_portal
+code .
+conda activate base
+conda create -p env python=3.10 -y
+conda activate C:\Users\vijay\2025\Learning\PractiveWhileListening\document_portal\env
+git init

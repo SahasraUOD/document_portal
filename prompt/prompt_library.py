@@ -51,10 +51,38 @@ context_qa_prompt = ChatPromptTemplate.from_messages([
     ("human", "{input}"),
 ])
 
+# Prompt for Python file explanation
+python_file_explanation_prompt = ChatPromptTemplate.from_template("""
+You are an expert Python developer and technical writer. Analyze and explain the following Python file in detail.
+
+**File Name:** {file_name}
+
+**Python Code:**
+```python
+{file_content}
+```
+
+Provide a comprehensive explanation covering:
+
+1. **Overview**: A brief summary of what this file does and its purpose.
+2. **Imports**: Explain the imported modules/packages and why they are used.
+3. **Classes & Functions**: For each class/function:
+   - Purpose and responsibility
+   - Parameters and return values
+   - Key logic and algorithms used
+4. **Key Variables**: Important variables and their roles.
+5. **Usage Example**: How this file/module would typically be used.
+6. **Dependencies**: External dependencies required.
+7. **Potential Improvements** (optional): Any suggestions for code improvement.
+
+Keep the explanation clear and suitable for developers who want to understand and work with this code.
+""")
+
 # Central dictionary to register prompts
 PROMPT_REGISTRY = {
     "document_analysis": document_analysis_prompt,
     "document_comparison": document_comparison_prompt,
     "contextualize_question": contextualize_question_prompt,
     "context_qa": context_qa_prompt,
+    "python_file_explanation": python_file_explanation_prompt,
 }

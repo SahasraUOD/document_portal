@@ -4,7 +4,6 @@ import json
 from dotenv import load_dotenv
 from utils.config_loader import load_config
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_groq import ChatGroq
 from logger import GLOBAL_LOGGER as log
 from exception.custom_exception import DocumentPortalException
@@ -83,11 +82,11 @@ class ModelLoader:
                     model=model_name,
                     google_api_key=self.api_key_mgr.get("GOOGLE_API_KEY")
                 )  # type: ignore
-            elif provider == "huggingface":
-                return HuggingFaceEmbeddings(
-                    model_name=model_name,
-                    model_kwargs={"device": "cpu"},
-                    encode_kwargs={"normalize_embeddings": True}
+            elif provider == "groq":
+                return ChatGroq(
+                    model=model_name,
+                    api_key=self.api_key_mgr.get("GROQ_API_KEY"), #type: ignore
+                    # temperature=temperature
                 )
             else:
                 raise ValueError(f"Unsupported embedding provider: {provider}")

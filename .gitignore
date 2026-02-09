@@ -39,3 +39,7 @@ logs/
 dist/
 build/
 document_portal.egg-info/
+
+
+#additional
+promptResponse/

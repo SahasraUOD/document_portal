@@ -1,7 +1,7 @@
 name: CI/CD to ECS Fargate
 on:
   workflow_run:
-    workflows: ["Run Unit Tests"]   # Match the name in your ci.yaml 
+    workflows: ["Run Unit Tests"]   # Match the name in your ci.yaml
     types:
       - completed
 env:
@@ -25,7 +25,7 @@ jobs:
         run: echo "CI passed on main branch, proceeding to build and deploy."
 
   # --------------------------------
-  # 1. Build & Push Docker Image
+  # 1. Build & Push Docker Image  ********
   # -------------------------------
   build-and-push:
     name: Build & Push Docker Image

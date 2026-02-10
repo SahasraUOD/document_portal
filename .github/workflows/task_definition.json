@@ -1,14 +1,14 @@
 {
   "family": "documentportaltd",
   "networkMode": "awsvpc",
-  "executionRoleArn": "arn:aws:iam::975049993264:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::851725341232:role/ecsTaskExecutionRole",
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "1024",
   "memory": "8192",
   "containerDefinitions": [
     {
       "name": "document-portal-container",
-      "image": "975049993264.dkr.ecr.us-east-1.amazonaws.com/documentportal",
+      "image": "851725341232.dkr.ecr.us-east-1.amazonaws.com/documentportal",
       "cpu": 1024,
       "essential": true,
       "portMappings": [
@@ -29,7 +29,7 @@
       "secrets": [
         {
           "name": "API_KEYS",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:975049993264:secret:apisecrets-1gaVDZ"
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:851725341232:secret:apisecrets-lA7Zvj"
         }
         
       ],
@@ -37,7 +37,7 @@
         "logDriver": "awslogs",
         "options": {
           "awslogs-group": "/ecs/documentportaltd",
-          "awslogs-region": "ap-southeast-2",
+          "awslogs-region": "us-east-1",
           "awslogs-stream-prefix": "ecs",
           "awslogs-create-group": "true"
         }

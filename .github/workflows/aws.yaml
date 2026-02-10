@@ -1,14 +1,14 @@
 name: CI/CD to ECS Fargate
 on:
   workflow_run:
-    workflows: ["Run Unit Tests"]   # Match the name in your ci.yaml 
+    workflows: ["Run Unit Tests"]   # Match the name in your ci.yaml   
     types:
       - completed
 env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: documentportal
   ECS_SERVICE: document-portal-service
-  ECS_CLUSTER: document-portal-cluster
+  ECS_CLUSTER: documentportalcluster
   ECS_TASK_DEFINITION: .github/workflows/task_definition.json
   CONTAINER_NAME: document-portal-container
 
